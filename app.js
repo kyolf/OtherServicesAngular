@@ -1,9 +1,9 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', function($scope, $log) {
-  $log.log('Hello World');
-  $log.info('This is info');
-  $log.warn('Warning');
-  $log.debug('Some issues');
-  $log.error('That was an error.')
+myApp.controller('mainController', function($scope, $log, $filter) {
+  $scope.name = 'John';
+  $scope.formattedname = $filter('uppercase')($scope.name);
+  $log.info($scope.name);
+  $log.info($scope.formattedname);
+
 });
